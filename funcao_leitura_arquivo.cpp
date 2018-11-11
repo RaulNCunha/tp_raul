@@ -4,9 +4,8 @@
 using std::cout;
 using std::endl;
 
-int main(int argc, char **argv){
+
+void teste(){
 	
-	cout << "hello world" << endl;
-	teste();
-	return 0;
+	cout << "Teste funcao" << endl;
 }
