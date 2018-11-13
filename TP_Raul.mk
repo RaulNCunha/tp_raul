@@ -13,7 +13,7 @@ CurrentFileName        :=
 CurrentFilePath        :=
 CurrentFileFullPath    :=
 User                   :=adole
-Date                   :=11/11/2018
+Date                   :=13/11/2018
 CodeLitePath           :="D:/Arquivos de Programas/CodeLite"
 LinkerName             :=C:/MinGW/bin/g++.exe
 SharedObjectLinkerName :=C:/MinGW/bin/g++.exe -shared -fPIC
@@ -62,7 +62,7 @@ AS       := C:/MinGW/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=D:\Arquivos de Programas\CodeLite
-Objects0=$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(ObjectSuffix) 
 
 
 
@@ -93,14 +93,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(ObjectSuffix): funcao_leitura_arquivo.cpp $(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/funcao_leitura_arquivo.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(DependSuffix): funcao_leitura_arquivo.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(DependSuffix) -MM funcao_leitura_arquivo.cpp
-
-$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(PreprocessSuffix): funcao_leitura_arquivo.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(PreprocessSuffix) funcao_leitura_arquivo.cpp
-
 $(IntermediateDirectory)/main.cpp$(ObjectSuffix): main.cpp $(IntermediateDirectory)/main.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/main.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
@@ -108,6 +100,14 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+
+$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(ObjectSuffix): funcao_leitura_arquivo.cpp $(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/funcao_leitura_arquivo.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(DependSuffix): funcao_leitura_arquivo.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(DependSuffix) -MM funcao_leitura_arquivo.cpp
+
+$(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(PreprocessSuffix): funcao_leitura_arquivo.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/funcao_leitura_arquivo.cpp$(PreprocessSuffix) funcao_leitura_arquivo.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
