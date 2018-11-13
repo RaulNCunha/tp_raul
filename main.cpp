@@ -7,6 +7,6 @@ using std::endl;
 int main(int argc, char **argv){
 	
 	cout << "hello world" << endl;
-	teste();
+	//teste();
 	return 0;
 }

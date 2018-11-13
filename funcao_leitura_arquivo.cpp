@@ -4,8 +4,10 @@
 using std::cout;
 using std::endl;
 
-
+/*
 void teste(){
 	
 	cout << "Teste funcao" << endl;
 }
+*/
+
