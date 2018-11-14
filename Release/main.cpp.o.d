@@ -1,3 +1,6 @@
-Release/main.cpp.o: main.cpp funcao_leitura_arquivo.h
+Release/main.cpp.o: main.cpp funcao_get_nome_arquivo.h \
+ funcao_le_arquivo.h
 
-funcao_leitura_arquivo.h:
+funcao_get_nome_arquivo.h:
+
+funcao_le_arquivo.h:

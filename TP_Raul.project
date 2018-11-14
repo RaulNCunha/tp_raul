@@ -3,8 +3,10 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
-    <File Name="funcao_leitura_arquivo.cpp"/>
-    <File Name="funcao_leitura_arquivo.h"/>
+    <File Name="funcao_get_nome_arquivo.cpp"/>
+    <File Name="funcao_get_nome_arquivo.h"/>
+    <File Name="funcao_le_arquivo.h"/>
+    <File Name="funcao_le_arquivo.cpp"/>
     <File Name="main.cpp"/>
   </VirtualDirectory>
   <Settings Type="Executable">

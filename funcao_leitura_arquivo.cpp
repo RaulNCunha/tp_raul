@@ -1,4 +1,4 @@
-#include "funcao_leitura_arquivo.h"
+#include "funcao_le_arquivo.h"
 
 #include <iostream>
 
@@ -14,7 +14,7 @@ using std::ofstream;
 
 
 // PARA O CORRETO FUNCIONAMENTO, OS ARQUIVOS A SEREM LIDOS DEVEM FICAR NA PASTA "release"
-void leArquivo(string nomeArquivo){
+void le_arquivo(string nomeArquivo){
 	
 	ifstream arquivoEntrada;
 	

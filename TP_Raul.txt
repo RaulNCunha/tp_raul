@@ -1,1 +1,1 @@
-./Release/main.cpp.o ./Release/funcao_leitura_arquivo.cpp.o   
+./Release/funcao_le_arquivo.cpp.o ./Release/main.cpp.o   
