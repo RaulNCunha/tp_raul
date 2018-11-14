@@ -5,6 +5,5 @@
 
 using std::string;
 
-//void teste();
 
 void leArquivo(string nomeArquivo);

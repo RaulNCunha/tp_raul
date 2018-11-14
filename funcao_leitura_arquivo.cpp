@@ -10,22 +10,17 @@ using std::string;
 #include <fstream>
 
 using std::ifstream;
+using std::ofstream;
 
 
-/*
-void teste(){
-	
-	cout << "Teste funcao" << endl;
-}
-*/
-
+// PARA O CORRETO FUNCIONAMENTO, OS ARQUIVOS A SEREM LIDOS DEVEM FICAR NA PASTA "release"
 void leArquivo(string nomeArquivo){
 	
 	ifstream arquivoEntrada;
 	
 	arquivoEntrada.open(nomeArquivo);
 	
-	if(!arquivoEntrada.is_open()){
+	if(arquivoEntrada.fail()){
 		
 		cout << "Erro na abertura do arquivo" << endl;
 		exit(1);
@@ -36,7 +31,7 @@ void leArquivo(string nomeArquivo){
 		
 		while(getline(arquivoEntrada, linha)){
 			
-			cout << linha << endl;
+			//cout << linha << endl;
 		}
 		
 		arquivoEntrada.close();		
