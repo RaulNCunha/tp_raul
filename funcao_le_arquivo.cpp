@@ -1,4 +1,5 @@
 #include "funcao_le_arquivo.h"
+#include "openFileException.h"
 
 #include <iostream>
 
@@ -15,32 +16,31 @@ using std::ifstream;
 // PARA O CORRETO FUNCIONAMENTO, OS ARQUIVOS A SEREM LIDOS DEVEM FICAR NA PASTA "release"
 void le_arquivo(string nomeArquivo){
 	
-	do{
-		
-		try{
-			
-			ifstream arquivoEntrada;
-		
-			arquivoEntrada.open(nomeArquivo);
-			
-			if(arquivoEntrada.fail()){
-				
-				throw(openFileException(nomeArquivo));
-				
-			}else{
-				
-				while(getline(arquivoEntrada, linha)){
-					
-					cout << linha << endl;
-			}
-			
-			arquivoEntrada.close();		
-		}
-		
-		catch(openFileException &erro){
-			
-			throw(erro);
-		}
+	ifstream arquivoEntrada;
 	
-	}while(arquivoEntrada);
+	try{
+			
+		arquivoEntrada.open(nomeArquivo);
+		
+		if(arquivoEntrada.fail()){
+			
+			throw(openFileException(nomeArquivo));
+			
+		}else if(arquivoEntrada.is_open()){
+			
+			string linha;
+			
+			while(getline(arquivoEntrada, linha)){
+				
+				cout << linha << endl;
+			}
+		}
+		
+		arquivoEntrada.close();		
+	}
+	catch(openFileException &erro){
+		
+		erro.what();
+		//throw(erro);
+	}
 }

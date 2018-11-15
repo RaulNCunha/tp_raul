@@ -3,6 +3,8 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="openFileException.cpp"/>
+    <File Name="openFileException.h"/>
     <File Name="funcao_get_nome_arquivo.cpp"/>
     <File Name="funcao_get_nome_arquivo.h"/>
     <File Name="funcao_le_arquivo.h"/>

@@ -62,7 +62,7 @@ AS       := C:/MinGW/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=D:\Arquivos de Programas\CodeLite
-Objects0=$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/openFileException.cpp$(ObjectSuffix) 
 
 
 
@@ -93,14 +93,6 @@ PreBuild:
 ##
 ## Objects
 ##
-$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix): funcao_get_nome_arquivo.cpp $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(DependSuffix)
-	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/funcao_get_nome_arquivo.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) $(IncludePath)
-$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(DependSuffix): funcao_get_nome_arquivo.cpp
-	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(DependSuffix) -MM funcao_get_nome_arquivo.cpp
-
-$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(PreprocessSuffix): funcao_get_nome_arquivo.cpp
-	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(PreprocessSuffix) funcao_get_nome_arquivo.cpp
-
 $(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix): funcao_le_arquivo.cpp $(IntermediateDirectory)/funcao_le_arquivo.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/funcao_le_arquivo.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/funcao_le_arquivo.cpp$(DependSuffix): funcao_le_arquivo.cpp
@@ -116,6 +108,22 @@ $(IntermediateDirectory)/main.cpp$(DependSuffix): main.cpp
 
 $(IntermediateDirectory)/main.cpp$(PreprocessSuffix): main.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/main.cpp$(PreprocessSuffix) main.cpp
+
+$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix): funcao_get_nome_arquivo.cpp $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/funcao_get_nome_arquivo.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(DependSuffix): funcao_get_nome_arquivo.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(DependSuffix) -MM funcao_get_nome_arquivo.cpp
+
+$(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(PreprocessSuffix): funcao_get_nome_arquivo.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(PreprocessSuffix) funcao_get_nome_arquivo.cpp
+
+$(IntermediateDirectory)/openFileException.cpp$(ObjectSuffix): openFileException.cpp $(IntermediateDirectory)/openFileException.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/openFileException.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/openFileException.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/openFileException.cpp$(DependSuffix): openFileException.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/openFileException.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/openFileException.cpp$(DependSuffix) -MM openFileException.cpp
+
+$(IntermediateDirectory)/openFileException.cpp$(PreprocessSuffix): openFileException.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/openFileException.cpp$(PreprocessSuffix) openFileException.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)
