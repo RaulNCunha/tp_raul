@@ -24,12 +24,19 @@ using std::set;
 
 using std::istringstream;
 
+#include <algorithm> // Para usar a funcao transform
+
+#include <cctype> // Para usar a funcao tolower
+
 
 void le_arquivo(string nomeArquivo){
 	
 	ifstream arquivoEntrada;
 	
-	map<string, set<string> Arquivos> ;
+	map<string, set<string>> mapArquivos;
+	map<string, set<string>>::iterator iteratorMap;
+	set<string> setArquivos;
+	set<string>::iterator iteratorSet;
 	
 	try{
 			
@@ -41,31 +48,96 @@ void le_arquivo(string nomeArquivo){
 			
 		}else if(arquivoEntrada.is_open()){
 			
-			string linha, palavra;
+			string palavra;
 			
-			while(getline(arquivoEntrada, linha)){
+			while(getline(arquivoEntrada, palavra, ' ')){ //Remove espaço
 				
-				//cout << linha << endl;
-				istringstream linha_stream(linha);
+				istringstream palavra_stream(palavra);
 				
-				while (getline(linha_stream, palavra, ' ')) {
+				while (getline(palavra_stream, palavra, ',')) { //Remove virgula
 					
-					cout << palavra << endl;
-					//total ++;
-					// Verifica se existe palavra no Map
-					/*
-					if(Map.count(palavra) != 0){
+					istringstream palavra_stream(palavra);
+					
+					while (getline(palavra_stream, palavra, '.')) { //Remove ponto
 						
-						// Caso exista    
-						Map[palavra]++;
+						istringstream palavra_stream(palavra);
 						
+						while (getline(palavra_stream, palavra, '-')) { //Remove hifen
+							
+							istringstream palavra_stream(palavra);
+							
+							while (getline(palavra_stream, palavra, '!')) { //Remove exclamacao
+								
+								istringstream palavra_stream(palavra);
+								
+								while (getline(palavra_stream, palavra, '?')) { //Remove interrogacao
+									
+									istringstream palavra_stream(palavra);
+									
+									while (getline(palavra_stream, palavra, ':')) { //Remove dois pontos
+										
+										istringstream palavra_stream(palavra);
+										
+										while (getline(palavra_stream, palavra, ';')) { //Remove ponto e virgula
+											
+											istringstream palavra_stream(palavra);
+											
+											while (getline(palavra_stream, palavra, '\'')) { //Remove aspas simples
+												
+												istringstream palavra_stream(palavra);
+												
+												while (getline(palavra_stream, palavra, '\"')) { //Remove aspas duplas
+													
+													istringstream palavra_stream(palavra);
+													
+													while (getline(palavra_stream, palavra, '[')) { //Remove colchete aberto
+														
+														istringstream palavra_stream(palavra);
+														
+														while (getline(palavra_stream, palavra, ']')) { //Remove colchete fechado
+															
+															istringstream palavra_stream(palavra);
+															
+															while (getline(palavra_stream, palavra, '{')) { //Remove chave aberta
+																
+																istringstream palavra_stream(palavra);
+																	
+																while (getline(palavra_stream, palavra, '}')) { //Remove chave fechada
+																	
+																	istringstream palavra_stream(palavra);
+																	
+																	while (getline(palavra_stream, palavra, '\n')) { //Remove enter (\n)
+																		
+																		istringstream palavra_stream(palavra);
+																		
+																		transform(palavra.begin(), palavra.end(), palavra.begin(), tolower);
+																		
+																		cout << palavra << endl;
+																		/*
+																		setArquivos.insert(nomeArquivo);
+																		mapArquivos.insert(make_pair(palavra, setArquivos));
+																		
+																		for(iteratorMap = mapArquivos.begin(); iteratorMap != mapArquivos.end(); iteratorMap++){
+																			
+																			for(iteratorSet = setArquivos.begin(); iteratorSet != setArquivos.end(); iteratorSet++){
+																				
+																				cout << iteratorMap->first << ": " << iteratorMap->second << endl;
+																			}
+																		}
+																		*/
+																	}
+																}
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						}
 					}
-					else {
-						
-						// Caso não exista
-						Map[palavra] = 1;
-						
-					}*/
 				}
 			}
 		}
