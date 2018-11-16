@@ -8,10 +8,10 @@ using std::string;
 
 class openFileException{
 	
-	const string mensagem;
+	const char* mensagem;
 public:
-	openFileException(string nomeArquivo);
-	const string what() const;
+	openFileException();
+	const char* what() const;
 	~openFileException();
 
 };

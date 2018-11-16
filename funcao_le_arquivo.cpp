@@ -13,7 +13,6 @@ using std::string;
 using std::ifstream;
 
 
-// PARA O CORRETO FUNCIONAMENTO, OS ARQUIVOS A SEREM LIDOS DEVEM FICAR NA PASTA "release"
 void le_arquivo(string nomeArquivo){
 	
 	ifstream arquivoEntrada;
@@ -24,7 +23,7 @@ void le_arquivo(string nomeArquivo){
 		
 		if(arquivoEntrada.fail()){
 			
-			throw(openFileException(nomeArquivo));
+			throw(openFileException());
 			
 		}else if(arquivoEntrada.is_open()){
 			
@@ -35,12 +34,12 @@ void le_arquivo(string nomeArquivo){
 				cout << linha << endl;
 			}
 		}
-		
-		arquivoEntrada.close();		
 	}
 	catch(openFileException &erro){
 		
-		erro.what();
+		cout << erro.what() << ":" << " " << nomeArquivo << endl;
 		//throw(erro);
 	}
+	
+	arquivoEntrada.close();
 }

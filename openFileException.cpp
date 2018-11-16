@@ -6,12 +6,12 @@ using std::cout;
 using std::endl;
 
 
-openFileException::openFileException(string nomeArquivo){
+openFileException::openFileException(){
 	
-	mensagem = 
+	mensagem = "Erro na abertura do arquivo";
 }
 
-const string openFileException::what() const{
+const char* openFileException::what() const{
 	
 	return mensagem;
 }
