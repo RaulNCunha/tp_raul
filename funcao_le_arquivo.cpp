@@ -29,6 +29,8 @@ void le_arquivo(string nomeArquivo){
 	
 	ifstream arquivoEntrada;
 	
+	map<string, set<string> Arquivos> ;
+	
 	try{
 			
 		arquivoEntrada.open(nomeArquivo);
@@ -45,7 +47,6 @@ void le_arquivo(string nomeArquivo){
 				
 				//cout << linha << endl;
 				istringstream linha_stream(linha);
-				//map<std::string, int> Map;
 				
 				while (getline(linha_stream, palavra, ' ')) {
 					
@@ -73,6 +74,10 @@ void le_arquivo(string nomeArquivo){
 		
 		cout << erro.what() << ":" << " " << nomeArquivo << endl;
 		//throw(erro);
+	}
+	catch(...){
+		
+		cout << "Erro nao identificado ocorreu" << endl;
 	}
 	
 	arquivoEntrada.close();
