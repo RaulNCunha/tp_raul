@@ -81,11 +81,11 @@ int main(int argc, char **argv){
 		}
 		else{
 			
-			cout << iteratorMap->first << "\t";
+			//cout << iteratorMap->first << "\t";
 			
 			for(iteratorSet = iteratorMap->second.begin(); iteratorSet != iteratorMap->second.end(); iteratorSet++){
 				
-				cout << "\t" << *iteratorSet;
+				cout << *iteratorSet << endl;
 			}
 			
 			cout << endl;
