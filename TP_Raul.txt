@@ -1,1 +1,1 @@
-./Release/funcao_le_arquivo.cpp.o ./Release/main.cpp.o ./Release/funcao_get_nome_arquivo.cpp.o ./Release/openFileException.cpp.o ./Release/funcao_get_palavra.cpp.o   
+./Release/TESTES_UNITARIOS.cpp.o ./Release/funcao_le_arquivo.cpp.o ./Release/main.cpp.o ./Release/funcao_get_nome_arquivo.cpp.o ./Release/openFileException.cpp.o ./Release/funcao_get_palavra.cpp.o   

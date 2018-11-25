@@ -81,13 +81,14 @@ int main(int argc, char **argv){
 		}
 		else{
 			
-			cout << "A palavra: " << iteratorMap->first << endl;
-			cout << "Esta presente nos seguintes arquivos:" << endl;
+			cout << iteratorMap->first << "\t";
 			
 			for(iteratorSet = iteratorMap->second.begin(); iteratorSet != iteratorMap->second.end(); iteratorSet++){
 				
-				cout << "\t" << *iteratorSet << endl;
+				cout << "\t" << *iteratorSet;
 			}
+			
+			cout << endl;
 		}
 	}
 	

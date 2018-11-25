@@ -62,7 +62,7 @@ AS       := C:/MinGW/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=D:\Arquivos de Programas\CodeLite
-Objects0=$(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/openFileException.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_get_palavra.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/openFileException.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_get_palavra.cpp$(ObjectSuffix) 
 
 
 
@@ -93,6 +93,14 @@ PreBuild:
 ##
 ## Objects
 ##
+$(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(ObjectSuffix): TESTES_UNITARIOS.cpp $(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/TESTES_UNITARIOS.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(DependSuffix): TESTES_UNITARIOS.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(DependSuffix) -MM TESTES_UNITARIOS.cpp
+
+$(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(PreprocessSuffix): TESTES_UNITARIOS.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/TESTES_UNITARIOS.cpp$(PreprocessSuffix) TESTES_UNITARIOS.cpp
+
 $(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix): funcao_le_arquivo.cpp $(IntermediateDirectory)/funcao_le_arquivo.cpp$(DependSuffix)
 	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/funcao_le_arquivo.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix) $(IncludePath)
 $(IntermediateDirectory)/funcao_le_arquivo.cpp$(DependSuffix): funcao_le_arquivo.cpp

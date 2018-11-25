@@ -3,6 +3,7 @@
   <Description/>
   <Dependencies/>
   <VirtualDirectory Name="src">
+    <File Name="TESTES_UNITARIOS.cpp" ExcludeProjConfig=""/>
     <File Name="funcao_get_palavra.cpp"/>
     <File Name="funcao_get_palavra.h"/>
     <File Name="openFileException.cpp"/>
