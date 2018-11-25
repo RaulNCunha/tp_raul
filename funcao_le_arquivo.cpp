@@ -15,6 +15,7 @@ using std::ifstream;
 #include <map>
 
 using std::map;
+using std::pair;
 
 #include <set>
 
@@ -27,23 +28,32 @@ using std::istringstream;
 #include <algorithm> // Para usar a funcao transform
 
 #include <cctype> // Para usar a funcao tolower
-
-
-void le_arquivo(string nomeArquivo){
+/*
+typedef map<string, set<string>> MAP;
+typedef map<string, set<string>>::iterator IT_MAP;
+typedef set<string> SET;
+typedef set<string>::iterator IT_SET;
+*/
+void le_arquivo(string nomeArquivo, 
+				map<string, set<string>> *mapArquivos, 
+				map<string, set<string>>::iterator *iteratorMap, 
+				set<string> *setArquivos, 
+				set<string>::iterator *iteratorSet){
 	
 	ifstream arquivoEntrada;
-	
-	map<string, set<string>> mapArquivos;
-	map<string, set<string>>::iterator iteratorMap;
-	set<string> setArquivos;
-	set<string>::iterator iteratorSet;
-	
+/*
+	MAP mapArquivos;
+	IT_MAP iteratorMap;
+	SET setArquivos;
+	IT_SET iteratorSet;
+*/
 	try{
 			
 		arquivoEntrada.open(nomeArquivo);
 		
 		if(arquivoEntrada.fail()){
 			
+			system("cls || clear");
 			throw(openFileException());
 			
 		}else if(arquivoEntrada.is_open()){
@@ -112,19 +122,8 @@ void le_arquivo(string nomeArquivo){
 																		
 																		transform(palavra.begin(), palavra.end(), palavra.begin(), tolower);
 																		
-																		cout << palavra << endl;
-																		/*
-																		setArquivos.insert(nomeArquivo);
-																		mapArquivos.insert(make_pair(palavra, setArquivos));
-																		
-																		for(iteratorMap = mapArquivos.begin(); iteratorMap != mapArquivos.end(); iteratorMap++){
-																			
-																			for(iteratorSet = setArquivos.begin(); iteratorSet != setArquivos.end(); iteratorSet++){
-																				
-																				cout << iteratorMap->first << ": " << iteratorMap->second << endl;
-																			}
-																		}
-																		*/
+																		setArquivos->insert(nomeArquivo);
+																		mapArquivos->insert(pair<string, set<string>>(palavra, *setArquivos));
 																	}
 																}
 															}
@@ -142,6 +141,7 @@ void le_arquivo(string nomeArquivo){
 			}
 		}
 	}
+	
 	catch(openFileException &erro){
 		
 		cout << erro.what() << ":" << " " << nomeArquivo << endl;
@@ -154,42 +154,3 @@ void le_arquivo(string nomeArquivo){
 	
 	arquivoEntrada.close();
 }
-/*
-	typedef std::map<std::string, int> MapType;
-	typedef std::map<std::string, int>::iterator IteratorType;
-   
-    MapType map;
-    float total = 0.0;
-    std::string linha, palavra;
-    while (std::getline(std::cin, linha)) {
-      std::istringstream linha_stream(linha);
-      while (std::getline(linha_stream, palavra, ' ')) {
-        total ++;
-        // Verifica se existe palavra no Map
-        if(map.count(palavra) != 0){
-            // Caso exista    
-            map[palavra]++;
-            
-        }
-        else {
-            // Caso não exista
-            map[palavra] = 1;
-            
-        }
-      }
-    }
-    
-    IteratorType it;
-
-    for ( it = map.begin(); it != map.end(); it++ )
-    {
-        std::cout << it->first
-                  << " "
-                  << it->second
-                  << " "
-                  << it->second/total
-                  << std::endl ;
-    }
-    return 0;
-}
-*/

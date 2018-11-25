@@ -16,6 +16,8 @@ string get_nome_arquivo(){
 	
 	cin >> nomeArquivo;
 	
+	system("cls || clear");
+	
 	return nomeArquivo;
 }
 	
