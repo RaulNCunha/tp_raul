@@ -62,7 +62,7 @@ AS       := C:/MinGW/bin/as.exe
 ## User defined environment variables
 ##
 CodeLiteDir:=D:\Arquivos de Programas\CodeLite
-Objects0=$(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/openFileException.cpp$(ObjectSuffix) 
+Objects0=$(IntermediateDirectory)/funcao_le_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/main.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_get_nome_arquivo.cpp$(ObjectSuffix) $(IntermediateDirectory)/openFileException.cpp$(ObjectSuffix) $(IntermediateDirectory)/funcao_get_palavra.cpp$(ObjectSuffix) 
 
 
 
@@ -124,6 +124,14 @@ $(IntermediateDirectory)/openFileException.cpp$(DependSuffix): openFileException
 
 $(IntermediateDirectory)/openFileException.cpp$(PreprocessSuffix): openFileException.cpp
 	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/openFileException.cpp$(PreprocessSuffix) openFileException.cpp
+
+$(IntermediateDirectory)/funcao_get_palavra.cpp$(ObjectSuffix): funcao_get_palavra.cpp $(IntermediateDirectory)/funcao_get_palavra.cpp$(DependSuffix)
+	$(CXX) $(IncludePCH) $(SourceSwitch) "C:/Users/adole/Documents/PDS2/TP_Raul/funcao_get_palavra.cpp" $(CXXFLAGS) $(ObjectSwitch)$(IntermediateDirectory)/funcao_get_palavra.cpp$(ObjectSuffix) $(IncludePath)
+$(IntermediateDirectory)/funcao_get_palavra.cpp$(DependSuffix): funcao_get_palavra.cpp
+	@$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) -MG -MP -MT$(IntermediateDirectory)/funcao_get_palavra.cpp$(ObjectSuffix) -MF$(IntermediateDirectory)/funcao_get_palavra.cpp$(DependSuffix) -MM funcao_get_palavra.cpp
+
+$(IntermediateDirectory)/funcao_get_palavra.cpp$(PreprocessSuffix): funcao_get_palavra.cpp
+	$(CXX) $(CXXFLAGS) $(IncludePCH) $(IncludePath) $(PreprocessOnlySwitch) $(OutputSwitch) $(IntermediateDirectory)/funcao_get_palavra.cpp$(PreprocessSuffix) funcao_get_palavra.cpp
 
 
 -include $(IntermediateDirectory)/*$(DependSuffix)

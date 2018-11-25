@@ -1,3 +1,7 @@
+#include "funcao_get_nome_arquivo.h"
+#include "funcao_get_palavra.h"
+#include "funcao_le_arquivo.h"
+
 #include <iostream>
 
 using std::cout;
@@ -12,19 +16,17 @@ using std::map;
 
 using std::set;
 
-#include "funcao_get_nome_arquivo.h"
-
-#include "funcao_le_arquivo.h"
-
 typedef map<string, set<string>> MAP;
 typedef map<string, set<string>>::iterator IT_MAP;
 typedef set<string> SET;
 typedef set<string>::iterator IT_SET;
 
-// PARA O CORRETO FUNCIONAMENTO, OS ARQUIVOS A SEREM LIDOS DEVEM FICAR NA PASTA "release"
+// PARA O CORRETO FUNCIONAMENTO, OS ARQUIVOS A SEREM LIDOS DEVEM FICAR NA PASTA "release" PORQUE NO CODELITE É ASSIM QUE FUNCIONA
 int main(int argc, char **argv){
 	
 	string nomeArquivo;
+	int contadorArquivos = 0;
+	string buscarPalavra;
 	
 	MAP mapArquivos;
 	IT_MAP iteratorMap;
@@ -34,13 +36,18 @@ int main(int argc, char **argv){
 	while(1){
 		
 		cout << "========================================================================================" << endl;
-		cout << "Para CONTINUAR a insercao de nomes digite o nome do arquivo com a extensao .txt " << endl;
-		cout << "Para FINALIZAR a insercao de nomes digite '0' " << endl;
+		cout << "Para CONTINUAR a insercao de arquivos digite o nome do arquivo com a extensao .txt " << endl;
+		cout << "Para FINALIZAR a insercao de arquivos digite 'FIM' " << endl;
 		cout << "========================================================================================" << endl;
 		
 		nomeArquivo = get_nome_arquivo();
 		
-		if(nomeArquivo == "0"){
+		if(nomeArquivo != "FIM"){
+			
+			contadorArquivos++;
+		}
+		
+		if(nomeArquivo == "FIM"){
 			
 			system("cls || clear");
 			break;
@@ -49,20 +56,38 @@ int main(int argc, char **argv){
 		le_arquivo(nomeArquivo, &mapArquivos, &iteratorMap, &setArquivos, &iteratorSet);
 	}
 	
-	cout << "Digite a palavra para buscar:" << endl;
-	
-	string buscarPalavra;
-	//cin >> buscarPalavra;
-	
-	cout << "A palavra " << buscarPalavra << " esta presente nos seguintes arquivos:" << endl;
-	
-	for(iteratorMap = mapArquivos.begin(); iteratorMap != mapArquivos.end(); iteratorMap++){
+	while(contadorArquivos != 0){
 		
-		cout << iteratorMap->first << ": " << endl;
+		cout << "========================================================================================" << endl;
+		cout << "Para CONTINUAR a busca de palavras digite a palavra a ser buscada" << endl;
+		cout << "Para FINALIZAR a busca de palavras digite 'FIM' " << endl;
+		cout << "========================================================================================" << endl;
 		
-		for(iteratorSet = iteratorMap->second.begin(); iteratorSet != iteratorMap->second.end(); iteratorSet++){
+		buscarPalavra = get_palavra();
+		
+		if(buscarPalavra == "FIM"){
 			
-			cout << "\t" << *iteratorSet << endl;
+			system("cls || clear");
+			break;
+		}
+		
+		iteratorMap = mapArquivos.find(buscarPalavra);
+		
+		if(iteratorMap == mapArquivos.end()){
+			
+			system("cls || clear");
+			cout << "A palavra: " << buscarPalavra << endl;
+			cout << "Nao existe em nenhum dos arquivos adicionados!" << endl;
+		}
+		else{
+			
+			cout << "A palavra: " << iteratorMap->first << endl;
+			cout << "Esta presente nos seguintes arquivos:" << endl;
+			
+			for(iteratorSet = iteratorMap->second.begin(); iteratorSet != iteratorMap->second.end(); iteratorSet++){
+				
+				cout << "\t" << *iteratorSet << endl;
+			}
 		}
 	}
 	

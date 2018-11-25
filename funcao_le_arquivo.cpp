@@ -28,12 +28,8 @@ using std::istringstream;
 #include <algorithm> // Para usar a funcao transform
 
 #include <cctype> // Para usar a funcao tolower
-/*
-typedef map<string, set<string>> MAP;
-typedef map<string, set<string>>::iterator IT_MAP;
-typedef set<string> SET;
-typedef set<string>::iterator IT_SET;
-*/
+
+
 void le_arquivo(string nomeArquivo, 
 				map<string, set<string>> *mapArquivos, 
 				map<string, set<string>>::iterator *iteratorMap, 
@@ -41,12 +37,7 @@ void le_arquivo(string nomeArquivo,
 				set<string>::iterator *iteratorSet){
 	
 	ifstream arquivoEntrada;
-/*
-	MAP mapArquivos;
-	IT_MAP iteratorMap;
-	SET setArquivos;
-	IT_SET iteratorSet;
-*/
+	
 	try{
 			
 		arquivoEntrada.open(nomeArquivo);
